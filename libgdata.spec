@@ -1,11 +1,11 @@
 Summary:	GData access library
 Name:		libgdata
-Version:	0.13.2
+Version:	0.13.3
 Release:	1
 License:	LGPL v2+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgdata/0.13/%{name}-%{version}.tar.xz
-# Source0-md5:	8790767a3700d146e859ce870229f8e7
+# Source0-md5:	295a189784842adc80c2c3c69f36e42a
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext
@@ -96,6 +96,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/libgdata
 %{_pkgconfigdir}/libgdata.pc
 %{_datadir}/gir-1.0/GData-0.0.gir
+%{_datadir}/vala/vapi/libgdata.deps
+%{_datadir}/vala/vapi/libgdata.vapi
 
 %files apidocs
 %defattr(644,root,root,755)
