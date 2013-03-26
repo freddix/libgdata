@@ -1,13 +1,14 @@
 Summary:	GData access library
 Name:		libgdata
 Version:	0.13.3
-Release:	1
+Release:	2
 License:	LGPL v2+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgdata/0.13/%{name}-%{version}.tar.xz
 # Source0-md5:	295a189784842adc80c2c3c69f36e42a
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	gcr-devel
 BuildRequires:	gettext
 BuildRequires:	glib-gio-devel
 BuildRequires:	gobject-introspection-devel
@@ -47,13 +48,13 @@ libgdata API documentation.
 %setup -q
 
 # kill gnome common deps
-sed -i -e 's/GNOME_COMPILE_WARNINGS.*//g'	\
+%{__sed} -i -e 's/GNOME_COMPILE_WARNINGS.*//g'	\
     -i -e 's/GNOME_MAINTAINER_MODE_DEFINES//g'	\
     -i -e 's/GNOME_COMMON_INIT//g'		\
     -i -e 's/GNOME_CXX_WARNINGS.*//g'		\
     -i -e '/GNOME_CODE_COVERAGE/d'		\
     -i -e 's/GNOME_DEBUG_CHECK//g' configure.ac
-sed -i '/@GNOME_CODE_COVERAGE_RULES@/d' Makefile.am
+%{__sed} -i '/@GNOME_CODE_COVERAGE_RULES@/d' Makefile.am
 
 %build
 %{__gtkdocize}
