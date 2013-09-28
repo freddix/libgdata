@@ -1,23 +1,23 @@
 Summary:	GData access library
 Name:		libgdata
-Version:	0.13.4
+Version:	0.14.0
 Release:	1
 License:	LGPL v2+
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgdata/0.13/%{name}-%{version}.tar.xz
-# Source0-md5:	fa2aab4da3d36baea298614001da3d6e
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgdata/0.14/%{name}-%{version}.tar.xz
+# Source0-md5:	0442d97eb76294a1e7629decbe7aa2fa
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gcr-devel
+BuildRequires:	gcr-devel >= 3.10.0
 BuildRequires:	gettext
-BuildRequires:	glib-gio-devel
-BuildRequires:	gnome-online-accounts-devel
-BuildRequires:	gobject-introspection-devel
+BuildRequires:	glib-gio-devel >= 1:2.38.0
+BuildRequires:	gnome-online-accounts-devel >= 3.10.0
+BuildRequires:	gobject-introspection-devel >= 1.38.0
 BuildRequires:	gtk-doc
 BuildRequires:	intltool
-BuildRequires:	libgnome-keyring-devel
+BuildRequires:	libgnome-keyring-devel >= 3.10.0
 BuildRequires:	liboauth-devel
-BuildRequires:	libsoup-devel
+BuildRequires:	libsoup-devel >= 2.44.0
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel
 BuildRequires:	pkg-config
@@ -55,6 +55,7 @@ libgdata API documentation.
     -i -e 's/GNOME_CXX_WARNINGS.*//g'		\
     -i -e '/GNOME_CODE_COVERAGE/d'		\
     -i -e 's/GNOME_DEBUG_CHECK//g' configure.ac
+
 %{__sed} -i '/@GNOME_CODE_COVERAGE_RULES@/d' Makefile.am
 
 %build
