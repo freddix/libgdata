@@ -1,11 +1,11 @@
 Summary:	GData access library
 Name:		libgdata
-Version:	0.14.0
+Version:	0.14.1
 Release:	1
 License:	LGPL v2+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgdata/0.14/%{name}-%{version}.tar.xz
-# Source0-md5:	0442d97eb76294a1e7629decbe7aa2fa
+# Source0-md5:	27022e2250393ae0dbd3818889a1ac62
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gcr-devel >= 3.10.0
