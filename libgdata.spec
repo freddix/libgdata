@@ -1,11 +1,11 @@
 Summary:	GData access library
 Name:		libgdata
-Version:	0.14.1
+Version:	0.14.3
 Release:	1
 License:	LGPL v2+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgdata/0.14/%{name}-%{version}.tar.xz
-# Source0-md5:	27022e2250393ae0dbd3818889a1ac62
+# Source0-md5:	2d9269b5bb3eebe4fd6d0999195e60b3
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gcr-devel >= 3.10.0
@@ -24,9 +24,10 @@ BuildRequires:	pkg-config
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-libgdata is a GLib-based library for accessing online service APIs using the
-GData protocol - most notably, Google's services. It provides APIs to access
-the common Google services, and has full asynchronous support.
+libgdata is a GLib-based library for accessing online service APIs
+using the GData protocol - most notably, Google's services. It
+provides APIs to access the common Google services, and has full
+asynchronous support.
 
 %package devel
 Summary:	Support files necessary to compile applications with libgdata
@@ -76,6 +77,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
 
 %find_lang gdata
 
