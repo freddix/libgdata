@@ -1,24 +1,25 @@
 Summary:	GData access library
 Name:		libgdata
-Version:	0.14.3
+Version:	0.16.0
 Release:	1
 License:	LGPL v2+
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgdata/0.14/%{name}-%{version}.tar.xz
-# Source0-md5:	2d9269b5bb3eebe4fd6d0999195e60b3
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgdata/0.16/%{name}-%{version}.tar.xz
+# Source0-md5:	30200bd24c04fa85fd104c1d03129161
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gcr-devel >= 3.10.0
+BuildRequires:	gcr-devel >= 3.14.0
 BuildRequires:	gettext
-BuildRequires:	glib-gio-devel >= 1:2.38.0
-BuildRequires:	gnome-online-accounts-devel >= 3.10.0
-BuildRequires:	gobject-introspection-devel >= 1.38.0
+BuildRequires:	glib-gio-devel >= 1:2.42.0
+BuildRequires:	gnome-online-accounts-devel >= 3.14.0
+BuildRequires:	gobject-introspection-devel >= 1.42.0
 BuildRequires:	gtk-doc
 BuildRequires:	intltool
-BuildRequires:	libgnome-keyring-devel >= 3.10.0
+BuildRequires:	libgnome-keyring-devel >= 3.12.0
 BuildRequires:	liboauth-devel
-BuildRequires:	libsoup-devel >= 2.44.0
+BuildRequires:	libsoup-devel >= 2.46.0
 BuildRequires:	libtool
+BuildRequires:	libuhttpmock-devel
 BuildRequires:	libxml2-devel
 BuildRequires:	pkg-config
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -48,16 +49,6 @@ libgdata API documentation.
 
 %prep
 %setup -q
-
-# kill gnome common deps
-%{__sed} -i -e 's/GNOME_COMPILE_WARNINGS.*//g'	\
-    -i -e 's/GNOME_MAINTAINER_MODE_DEFINES//g'	\
-    -i -e 's/GNOME_COMMON_INIT//g'		\
-    -i -e 's/GNOME_CXX_WARNINGS.*//g'		\
-    -i -e '/GNOME_CODE_COVERAGE/d'		\
-    -i -e 's/GNOME_DEBUG_CHECK//g' configure.ac
-
-%{__sed} -i '/@GNOME_CODE_COVERAGE_RULES@/d' Makefile.am
 
 %build
 %{__gtkdocize}
